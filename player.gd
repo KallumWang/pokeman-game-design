@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 @export var walk_speed = 4.0
 const TILE_SIZE = 16
 
@@ -76,12 +77,17 @@ func need_to_turn():
 func finished_turning():
 	player_state = PlayerState.IDLE
 		
+# Replace your current move and encounter functions with this:
+
 func move(delta):
-	percent_moved_to_next_tile += walk_speed * delta #Delta is time passed, walk speed is obvious
+	percent_moved_to_next_tile += walk_speed * delta
+	
 	if percent_moved_to_next_tile >= 1.0:
-		position = initial_postion + (TILE_SIZE	* input_direction)
+		# We arrived at the tile
+		position = initial_postion + (TILE_SIZE * input_direction)
 		percent_moved_to_next_tile = 0.0
 		is_moving = false
+
 	else:
-		position = initial_postion + (TILE_SIZE	* input_direction * percent_moved_to_next_tile	)
-		
+		# We are still sliding towards the tile
+		position = initial_postion + (TILE_SIZE * input_direction * percent_moved_to_next_tile)

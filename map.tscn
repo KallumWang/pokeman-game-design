@@ -37,3 +37,4 @@ layer_0/tile_data = PackedInt32Array(-65538, 196608, 2, -2, 196608, 2, 65534, 19
 [node name="Player" parent="." instance=ExtResource("1_c7s6e")]
 
 [node name="TallGrass" parent="." instance=ExtResource("3_e0an3")]
+position = Vector2(16, 32)
