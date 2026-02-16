@@ -2,7 +2,7 @@ extends Node2D
 
 # --- DATA ---
 var player_hp = 100
-var enemy_hp = 100
+var enemy_hp = 450
 var lucky_multiplier: float = 2.0
 var lucky_move_index: int = -1
 
@@ -33,6 +33,8 @@ func setup_sprites():
 	# 2. Set textures (Replace "res://icon.svg" with your actual art paths)
 	player_sprite.texture = load("res://icon.svg")
 	enemy_sprite.texture = load("res://icon.svg")
+	player_sprite.scale = Vector2(0.5, 0.5) 
+	enemy_sprite.scale = Vector2(0.5, 0.5)
 	
 	# 3. Initial Position: Start them off-screen for the slide-in effect
 	player_sprite.global_position = player_spawn.global_position + Vector2(-600, 0)
@@ -46,34 +48,36 @@ func setup_sprites():
 func pick_lucky_move():
 	# Randomly pick 0, 1, 2
 	lucky_move_index = randi() % 3
-	var move_names = ["Tackle", "Fireball","Epstein Kidnap"]
+	var move_names = ["Tackle", "Fireball","Kidnap"]
 	print("DEBUG: The lucky move for this fight is: ", move_names[lucky_move_index])
 
 func _input(_event):
 	if not is_player_turn: return
 	
 	if Input.is_key_pressed(KEY_1):
-		execute_player_move(0, "Tackle", 20)
+		execute_player_move(0, "Tackle", 25)
 	elif Input.is_key_pressed(KEY_2):
 		execute_player_move(1, "Fireball", 35)
 	elif Input.is_key_pressed(KEY_3):
-		execute_player_move(2, "Epstein Kidnap", 30)
+		execute_player_move(2, "Kidnap", 30)
 
 func execute_player_move(move_id: int, move_name: String, base_damage: int):
 	is_player_turn = false
 	var final_damage = base_damage
 	
-	# Check for Lucky Hit
 	if move_id == lucky_move_index:
 		final_damage = int(base_damage * lucky_multiplier)
 		print("!!! LUCKY HIT !!!")
+		# Use the spawn_pos and yellow color
+		spawn_damage_number(final_damage, enemy_spawn.global_position, Color.YELLOW)
 		flash_sprite(enemy_sprite, Color.YELLOW)
 	else:
+		spawn_damage_number(final_damage, enemy_spawn.global_position, Color.WHITE)
 		flash_sprite(enemy_sprite, Color.RED)
 	
 	print("Player used ", move_name, "! Dealt ", final_damage, " damage.")
 	enemy_hp -= final_damage
-	enemy_hp = max(0, enemy_hp) # Prevent negative HP
+	enemy_hp = max(0, enemy_hp)
 	
 	check_battle_status("enemy")
 
@@ -85,9 +89,11 @@ func enemy_turn():
 	player_hp -= damage
 	player_hp = max(0, player_hp)
 	
+	# Spawn damage number over the player
+	spawn_damage_number(damage, player_spawn.global_position, Color.WHITE)
+	
 	print("Enemy used Slash! Dealt ", damage, " damage.")
 	flash_sprite(player_sprite, Color.RED)
-	
 	check_battle_status("player")
 
 func check_battle_status(last_target: String):
@@ -124,21 +130,32 @@ func victory_animation(defeated_sprite: Sprite2D):
 	tween.parallel().tween_property(defeated_sprite, "position:y", 100, 0.5)
 	set_process_input(false) # Disable further keys
 	
-func spawn_damage_number(amount: int, position: Vector2, color: Color):
+func spawn_damage_number(amount: int, target_position: Vector2, color: Color):
 	var label = Label.new()
 	label.text = str(amount)
-	label.font_size = 32 # Make it big and readable
+	
+	# FIX: Use theme override instead of direct property access
+	label.add_theme_font_size_override("font_size", 32)
+	
 	label.modulate = color
 	
-	# Center the label over the sprite's position
-	label.global_position = position + Vector2(-20, -50)
+	# Position and Animation logic remains the same...
+	label.global_position = target_position + Vector2(-20, -50)
 	add_child(label)
 	
-	# Animate the label
 	var tween = create_tween()
-	# Move up 100 pixels and fade to transparent over 0.7 seconds
 	tween.tween_property(label, "position:y", label.position.y - 100, 0.7)
 	tween.parallel().tween_property(label, "modulate:a", 0, 0.7)
-	
-	# Delete the label when the animation is done
 	tween.tween_callback(label.queue_free)
+
+
+func _on_move_1_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_move_2_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_move_3_pressed() -> void:
+	pass # Replace with function body.
