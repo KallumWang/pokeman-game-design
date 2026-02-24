@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://spiuxiiyfpr5"]
 
 [ext_resource type="Texture2D" uid="uid://dm3v8fnmgr0l2" path="res://Assets/Player/Male_Spritesheet.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://bb3is8w1ny31s" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://bb3is8w1ny31s" path="res://code/player.gd" id="1_onrkg"]
 [ext_resource type="AnimationLibrary" uid="uid://bqwhtue2m63wc" path="res://player_library.res" id="3_i3pqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7s6e"]

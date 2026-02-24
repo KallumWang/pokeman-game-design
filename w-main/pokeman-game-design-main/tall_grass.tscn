@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcwsl5elmn3xl"]
+[gd_scene format=3 uid="uid://bcwsl5elmn3xl"]
 
 [ext_resource type="Texture2D" uid="uid://cth20j4hrvqb1" path="res://Assets/Grass/tall_grass.png" id="1_a5fcn"]
-[ext_resource type="Script" uid="uid://dq0hicvyjn6q5" path="res://tall_grass.gd" id="1_gbl6l"]
+[ext_resource type="Script" uid="uid://dq0hicvyjn6q5" path="res://code/tall_grass.gd" id="1_gbl6l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5fcn"]
 size = Vector2(9, 9)

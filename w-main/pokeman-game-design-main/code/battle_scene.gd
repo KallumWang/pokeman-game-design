@@ -142,11 +142,13 @@ func flash_sprite(sprite: Sprite2D, color: Color):
 
 func victory_animation(defeated_sprite: Sprite2D):
 	var tween = create_tween()
-	tween.parallel().tween_property(defeated_sprite, "modulate:a", 0, 0.5)
+	tween.tween_property(defeated_sprite, "modulate:a", 0, 0.5)
 	
-	# Wait for animation, then go back to the saved map
 	await tween.finished
+	
 	if Global.current_map_path != "":
+		# Use the fade so the transition back to map is smooth
+		await Transition.fade_to_black() 
 		get_tree().change_scene_to_file(Global.current_map_path)
 		
 func spawn_damage_number(amount: int, target_position: Vector2, color: Color):
