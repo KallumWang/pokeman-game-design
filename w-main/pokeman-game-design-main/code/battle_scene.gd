@@ -1,8 +1,8 @@
 extends Node2D
 
 # --- DATA ---
-var player_hp = 250
-var enemy_hp = 500
+var player_hp = 100
+var enemy_hp = 130
 var lucky_multiplier: float = 2.0
 var lucky_move_index: int = -1
 
@@ -10,7 +10,7 @@ var lucky_move_index: int = -1
 var enemy_moves = [
 	{"name": "Cheese", "damage": 15},
 	{"name": "Hollow purple", "damage": 30},
-	{"name": "Diddle", "damage": 10},
+	{"name": "Diddle", "damage": 15},
 	{"name": "Divergent fist", "damage": 15}
 ]
 
@@ -19,7 +19,7 @@ var enemy_moves = [
 @onready var player_spawn = $PlayerSpawn
 @onready var enemy_spawn = $EnemySpawn
 @onready var move_menu = $BattleUI/Control/MarginContainer/VBoxContainer
-@onready var battle_log = $BattleUI/RichTextLabel 
+@onready var battle_log = $BattleUI/RichTextLabel
 @onready var player_hp_bar = $BattleUI/PlayerHPBar
 @onready var enemy_hp_bar = $BattleUI/EnemyHPBar
 
@@ -46,15 +46,16 @@ func _ready():
 
 func setup_sprites():
 	player_spawn.add_child(player_sprite)
+	print("over here")
 	enemy_spawn.add_child(enemy_sprite)
 	
-	player_sprite.texture = load("res://icon.svg")
+	player_sprite.texture = load("res://Spripokemon ghost.png")
 	enemy_sprite.texture = load("res://icon.svg")
-	player_sprite.scale = Vector2(0.5, 0.5) 
-	enemy_sprite.scale = Vector2(0.5, 0.5)
+	player_sprite.global_scale = Vector2(2, 2) 
+	enemy_sprite.global_scale = Vector2(0.5, 0.5)
 	
-	player_sprite.global_position = player_spawn.global_position + Vector2(-600, 0)
-	enemy_sprite.global_position = enemy_spawn.global_position + Vector2(600, 0)
+	player_sprite.global_position = player_spawn.global_position + Vector2(-200, 0)
+	enemy_sprite.global_position = enemy_spawn.global_position + Vector2(200, 0)
 	
 	var intro_tween = create_tween().set_parallel(true)
 	intro_tween.tween_property(player_sprite, "position", Vector2.ZERO, 1.0).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
@@ -62,7 +63,7 @@ func setup_sprites():
 
 func pick_lucky_move():
 	lucky_move_index = randi() % 4
-	var move_names = ["Tackle", "Fireball", "Kidnap", "PhotoChad"]
+	var move_names = ["Toe mass", "Fireball", "Kidnap", "Oil Up"]
 	print("DEBUG: The lucky move for this fight is: ", move_names[lucky_move_index])
 
 func update_log(new_text: String):
@@ -172,12 +173,12 @@ func _on_move_1_pressed() -> void:
 
 func _on_move_2_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(1, "Fireball", 30)
+		execute_player_move(1, "Fireball", 20)
 
 func _on_move_3_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(2, "Kidnap", 30)
+		execute_player_move(2, "Kidnap", 200)
 
 func _on_move_4_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(3, "Oil Up", 3000)
+		execute_player_move(3, "Oil Up", 35)

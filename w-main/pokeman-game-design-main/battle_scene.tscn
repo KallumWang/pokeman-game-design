@@ -8,7 +8,7 @@
 script = ExtResource("1_fw8re")
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=104003175]
-position = Vector2(33, 145)
+position = Vector2(80, 145)
 
 [node name="EnemySpawn" type="Marker2D" parent="." unique_id=512400262]
 position = Vector2(252, 56)
@@ -56,16 +56,6 @@ offset_right = 242.22862
 offset_bottom = 59.000786
 scale = Vector2(1.031151, 0.78570324)
 
-[node name="PlayerHPBar" type="TextureProgressBar" parent="BattleUI" unique_id=175915896]
-offset_left = 6.0000153
-offset_top = 79.999985
-offset_right = 98.69594
-offset_bottom = 149.5992
-rotation = -6.275622
-scale = Vector2(0.95357174, 1.0078534)
-max_value = 250.0
-texture_progress = ExtResource("2_r5l0u")
-
 [node name="EnemyHPBar" type="TextureProgressBar" parent="BattleUI" unique_id=279187523]
 offset_left = 215.0
 offset_top = -3.9999962
@@ -77,14 +67,26 @@ max_value = 500.0
 texture_progress = ExtResource("2_r5l0u")
 tint_progress = Color(1, 1, 0, 1)
 
-[node name="hp 2" type="Sprite2D" parent="BattleUI" unique_id=384236115]
-position = Vector2(247, 13.000001)
-scale = Vector2(0.8843237, 0.82033217)
-texture = ExtResource("3_5g7vw")
+[node name="PlayerHPBar" type="TextureProgressBar" parent="BattleUI" unique_id=175915896]
+offset_left = 55.530537
+offset_top = 123.0
+offset_right = 148.22644
+offset_bottom = 192.59921
+rotation = -6.275622
+scale = Vector2(0.95357174, 1.0078534)
+max_value = 250.0
+texture_progress = ExtResource("2_r5l0u")
+metadata/_edit_group_ = true
 
 [node name="hp 3" type="Sprite2D" parent="BattleUI" unique_id=720956711]
-position = Vector2(37, 97.00001)
+position = Vector2(86.53052, 140.00003)
 scale = Vector2(0.92452514, 0.80204445)
+texture = ExtResource("3_5g7vw")
+metadata/_edit_group_ = true
+
+[node name="hp 2" type="Sprite2D" parent="BattleUI" unique_id=384236115]
+position = Vector2(246.99998, 13.000008)
+scale = Vector2(0.88432366, 0.82033217)
 texture = ExtResource("3_5g7vw")
 
 [connection signal="pressed" from="BattleUI/Control/MarginContainer/VBoxContainer/move1" to="." method="_on_move_1_pressed"]
