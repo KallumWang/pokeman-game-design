@@ -66,6 +66,13 @@ scale = Vector2(0.95357174, 1.0078534)
 max_value = 500.0
 texture_progress = ExtResource("2_r5l0u")
 tint_progress = Color(1, 1, 0, 1)
+metadata/_edit_group_ = true
+
+[node name="hp 2" type="Sprite2D" parent="BattleUI" unique_id=384236115]
+position = Vector2(246.99998, 13.000008)
+scale = Vector2(0.88432366, 0.82033217)
+texture = ExtResource("3_5g7vw")
+metadata/_edit_group_ = true
 
 [node name="PlayerHPBar" type="TextureProgressBar" parent="BattleUI" unique_id=175915896]
 offset_left = 55.530537
@@ -83,11 +90,7 @@ position = Vector2(86.53052, 140.00003)
 scale = Vector2(0.92452514, 0.80204445)
 texture = ExtResource("3_5g7vw")
 metadata/_edit_group_ = true
-
-[node name="hp 2" type="Sprite2D" parent="BattleUI" unique_id=384236115]
-position = Vector2(246.99998, 13.000008)
-scale = Vector2(0.88432366, 0.82033217)
-texture = ExtResource("3_5g7vw")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="BattleUI/Control/MarginContainer/VBoxContainer/move1" to="." method="_on_move_1_pressed"]
 [connection signal="pressed" from="BattleUI/Control/MarginContainer/VBoxContainer/move2" to="." method="_on_move_2_pressed"]

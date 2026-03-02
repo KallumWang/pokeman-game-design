@@ -3,14 +3,14 @@ extends Node2D
 # --- DATA ---
 var player_hp = 100
 var enemy_hp = 130
-var lucky_multiplier: float = 2.0
+var lucky_multiplier: float = 1.25
 var lucky_move_index: int = -1
 
 # Enemy Move Data
 var enemy_moves = [
-	{"name": "Cheese", "damage": 15},
+	{"name": "Cheese", "damage": 25},
 	{"name": "Hollow purple", "damage": 30},
-	{"name": "Diddle", "damage": 15},
+	{"name": "Diddle", "damage": 25},
 	{"name": "Divergent fist", "damage": 15}
 ]
 
@@ -177,7 +177,7 @@ func _on_move_2_pressed() -> void:
 
 func _on_move_3_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(2, "Kidnap", 200)
+		execute_player_move(2, "Kidnap", 25)
 
 func _on_move_4_pressed() -> void:
 	if is_player_turn:
