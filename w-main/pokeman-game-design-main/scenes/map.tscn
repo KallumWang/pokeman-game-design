@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b050dw7oc0gmn" path="res://actual assets/tilset.png" id="2_2klcf"]
 [ext_resource type="PackedScene" uid="uid://bcwsl5elmn3xl" path="res://scenes/tall_grass.tscn" id="3_nakos"]
 [ext_resource type="PackedScene" uid="uid://spiuxiiyfpr5" path="res://scenes/player.tscn" id="4_jh32y"]
-[ext_resource type="PackedScene" uid="uid://gju3ugc622hc" path="res://scenes/Boss1.tscn" id="5_be0no"]
+[ext_resource type="PackedScene" uid="uid://gju3ugc622hc" path="res://Trainers and fights/Boss1.tscn" id="5_be0no"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lpho"]
 texture = ExtResource("2_2klcf")

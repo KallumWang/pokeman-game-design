@@ -8,10 +8,10 @@ var lucky_move_index: int = -1
 var trainer_name: String = ""
 # Enemy Move Data
 var enemy_moves = [
-	{"name": "Cheese", "damage": 25},
-	{"name": "Hollow purple", "damage": 30},
-	{"name": "Diddle", "damage": 25},
-	{"name": "Divergent fist", "damage": 15}
+	{"name": "AS", "damage": 25},
+	{"name": "S", "damage": 30},
+	{"name": "B", "damage": 25},
+	{"name": "Q", "damage": 15}
 ]
 
 

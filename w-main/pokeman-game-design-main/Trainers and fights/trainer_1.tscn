@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c4xkpuvyd3fe7"]
 
-[ext_resource type="Script" uid="uid://7xfqxepyrm5s" path="res://code/battle_scene.gd" id="1_17bly"]
-[ext_resource type="Texture2D" uid="uid://c0xyxvu7kxv7h" path="res://actual assets/red.png" id="2_oseij"]
-[ext_resource type="Texture2D" uid="uid://bv0fwiqqaobap" path="res://actual assets/empty.png" id="3_4ujn2"]
+[ext_resource type="Script" uid="uid://d26qktghtfhsx" path="res://code/trainer_1.gd" id="1_fah7b"]
+[ext_resource type="Texture2D" uid="uid://c0xyxvu7kxv7h" path="res://actual assets/red.png" id="2_khj81"]
+[ext_resource type="Texture2D" uid="uid://bv0fwiqqaobap" path="res://actual assets/empty.png" id="3_0b4qi"]
 
 [node name="BattleScene" type="Node2D" unique_id=1455103894]
-script = ExtResource("1_17bly")
+script = ExtResource("1_fah7b")
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=104003175]
 position = Vector2(80, 145)
@@ -64,14 +64,14 @@ offset_bottom = 65.59921
 rotation = -6.275622
 scale = Vector2(0.95357174, 1.0078534)
 max_value = 500.0
-texture_progress = ExtResource("2_oseij")
+texture_progress = ExtResource("2_khj81")
 tint_progress = Color(1, 1, 0, 1)
 metadata/_edit_group_ = true
 
 [node name="hp 2" type="Sprite2D" parent="BattleUI" unique_id=384236115]
 position = Vector2(246.99998, 13.000008)
 scale = Vector2(0.88432366, 0.82033217)
-texture = ExtResource("3_4ujn2")
+texture = ExtResource("3_0b4qi")
 metadata/_edit_group_ = true
 
 [node name="PlayerHPBar" type="TextureProgressBar" parent="BattleUI" unique_id=175915896]
@@ -82,13 +82,13 @@ offset_bottom = 192.59921
 rotation = -6.275622
 scale = Vector2(0.95357174, 1.0078534)
 max_value = 250.0
-texture_progress = ExtResource("2_oseij")
+texture_progress = ExtResource("2_khj81")
 metadata/_edit_group_ = true
 
 [node name="hp 3" type="Sprite2D" parent="BattleUI" unique_id=720956711]
 position = Vector2(86.53052, 140.00003)
 scale = Vector2(0.92452514, 0.80204445)
-texture = ExtResource("3_4ujn2")
+texture = ExtResource("3_0b4qi")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 

@@ -31,4 +31,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		Global.current_trainer_name = name 
 		
 		await Transition.fade_to_black()
-		get_tree().change_scene_to_file("res://scenes/battle_scene.tscn")
+		get_tree().change_scene_to_file("res://Trainers and fights/Boss1.tscn")
