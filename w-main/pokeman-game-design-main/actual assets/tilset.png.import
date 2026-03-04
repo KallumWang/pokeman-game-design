@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxhyralincjbb"
-path="res://.godot/imported/Health bar.png-596acdf171fc7fc79cb8f1d5a7c428e4.ctex"
+uid="uid://b050dw7oc0gmn"
+path="res://.godot/imported/tilset.png-2c31a62fa62ef2116fafdba3ff274660.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Health bar.png"
-dest_files=["res://.godot/imported/Health bar.png-596acdf171fc7fc79cb8f1d5a7c428e4.ctex"]
+source_file="res://actual assets/tilset.png"
+dest_files=["res://.godot/imported/tilset.png-2c31a62fa62ef2116fafdba3ff274660.ctex"]
 
 [params]
 

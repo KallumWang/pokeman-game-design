@@ -5,7 +5,7 @@ var player_hp = 100
 var enemy_hp = 130
 var lucky_multiplier: float = 1.25
 var lucky_move_index: int = -1
-
+var trainer_name: String = ""
 # Enemy Move Data
 var enemy_moves = [
 	{"name": "Cheese", "damage": 25},
@@ -49,8 +49,8 @@ func setup_sprites():
 	print("over here")
 	enemy_spawn.add_child(enemy_sprite)
 	
-	player_sprite.texture = load("res://Spripokemon ghost.png")
-	enemy_sprite.texture = load("res://icon.svg")
+	player_sprite.texture = load("res://actual assets/Spripokemon ghost.png")
+	enemy_sprite.texture = load("res://actual assets/icon.svg")
 	player_sprite.global_scale = Vector2(2, 2) 
 	enemy_sprite.global_scale = Vector2(0.5, 0.5)
 	
@@ -63,7 +63,7 @@ func setup_sprites():
 
 func pick_lucky_move():
 	lucky_move_index = randi() % 4
-	var move_names = ["Toe mass", "Fireball", "Kidnap", "Oil Up"]
+	var move_names = ["Toe mass", "USA", "Kidnap", "Oil Up"]
 	print("DEBUG: The lucky move for this fight is: ", move_names[lucky_move_index])
 
 func update_log(new_text: String):
@@ -144,13 +144,15 @@ func flash_sprite(sprite: Sprite2D, color: Color):
 func victory_animation(defeated_sprite: Sprite2D):
 	var tween = create_tween()
 	tween.tween_property(defeated_sprite, "modulate:a", 0, 0.5)
-	
 	await tween.finished
 	
-	if Global.current_map_path != "":
-		# Use the fade so the transition back to map is smooth
-		await Transition.fade_to_black() 
-		get_tree().change_scene_to_file(Global.current_map_path)
+	# Add the trainer to the defeated list before leaving
+	if Global.current_trainer_name != "":
+		Global.defeated_trainers.append(Global.current_trainer_name)
+		Global.current_trainer_name = "" # Reset it
+	
+	await Transition.fade_to_black()
+	get_tree().change_scene_to_file(Global.current_map_path)
 		
 func spawn_damage_number(amount: int, target_position: Vector2, color: Color):
 	var label = Label.new()
@@ -173,7 +175,7 @@ func _on_move_1_pressed() -> void:
 
 func _on_move_2_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(1, "Fireball", 20)
+		execute_player_move(1, "USA", 20)
 
 func _on_move_3_pressed() -> void:
 	if is_player_turn:

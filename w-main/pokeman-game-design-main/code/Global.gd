@@ -1,10 +1,11 @@
 extends Node
-
+var current_trainer_name: String = "" # Add this at the top of Global.gd
 var player_map_position: Vector2 = Vector2.ZERO
 var current_map_path: String = ""
-
-# New: Tracks disabled grass patches by their name or ID
 var disabled_grass_patches = {} 
+
+# NEW: Track names of defeated trainers
+var defeated_trainers = [] 
 
 func save_player_state(pos: Vector2, map_path: String):
 	player_map_position = pos
@@ -12,8 +13,7 @@ func save_player_state(pos: Vector2, map_path: String):
 
 func disable_patch(patch_name: String, duration: float):
 	disabled_grass_patches[patch_name] = true
-	# Use a scene tree timer from the Global node itself
 	await get_tree().create_timer(duration).timeout
-	# Check if the key still exists before erasing to prevent errors
 	if disabled_grass_patches.has(patch_name):
 		disabled_grass_patches.erase(patch_name)
+		

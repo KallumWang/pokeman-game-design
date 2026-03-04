@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://deg024tpkjqmy"]
+[gd_scene format=3 uid="uid://c4xkpuvyd3fe7"]
 
-[ext_resource type="Script" uid="uid://7xfqxepyrm5s" path="res://code/battle_scene.gd" id="1_fw8re"]
-[ext_resource type="Texture2D" uid="uid://c0xyxvu7kxv7h" path="res://red.png" id="2_r5l0u"]
-[ext_resource type="Texture2D" uid="uid://bv0fwiqqaobap" path="res://empty.png" id="3_5g7vw"]
+[ext_resource type="Script" uid="uid://7xfqxepyrm5s" path="res://code/battle_scene.gd" id="1_17bly"]
+[ext_resource type="Texture2D" uid="uid://c0xyxvu7kxv7h" path="res://actual assets/red.png" id="2_oseij"]
+[ext_resource type="Texture2D" uid="uid://bv0fwiqqaobap" path="res://actual assets/empty.png" id="3_4ujn2"]
 
 [node name="BattleScene" type="Node2D" unique_id=1455103894]
-script = ExtResource("1_fw8re")
+script = ExtResource("1_17bly")
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=104003175]
 position = Vector2(80, 145)
@@ -39,7 +39,7 @@ text = "Toe Mass"
 
 [node name="move2" type="Button" parent="BattleUI/Control/MarginContainer/VBoxContainer" unique_id=742606846]
 layout_mode = 2
-text = "Fireball"
+text = "USA"
 
 [node name="move3" type="Button" parent="BattleUI/Control/MarginContainer/VBoxContainer" unique_id=2042258454]
 layout_mode = 2
@@ -64,14 +64,14 @@ offset_bottom = 65.59921
 rotation = -6.275622
 scale = Vector2(0.95357174, 1.0078534)
 max_value = 500.0
-texture_progress = ExtResource("2_r5l0u")
+texture_progress = ExtResource("2_oseij")
 tint_progress = Color(1, 1, 0, 1)
 metadata/_edit_group_ = true
 
 [node name="hp 2" type="Sprite2D" parent="BattleUI" unique_id=384236115]
 position = Vector2(246.99998, 13.000008)
 scale = Vector2(0.88432366, 0.82033217)
-texture = ExtResource("3_5g7vw")
+texture = ExtResource("3_4ujn2")
 metadata/_edit_group_ = true
 
 [node name="PlayerHPBar" type="TextureProgressBar" parent="BattleUI" unique_id=175915896]
@@ -82,13 +82,13 @@ offset_bottom = 192.59921
 rotation = -6.275622
 scale = Vector2(0.95357174, 1.0078534)
 max_value = 250.0
-texture_progress = ExtResource("2_r5l0u")
+texture_progress = ExtResource("2_oseij")
 metadata/_edit_group_ = true
 
 [node name="hp 3" type="Sprite2D" parent="BattleUI" unique_id=720956711]
 position = Vector2(86.53052, 140.00003)
 scale = Vector2(0.92452514, 0.80204445)
-texture = ExtResource("3_5g7vw")
+texture = ExtResource("3_4ujn2")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 

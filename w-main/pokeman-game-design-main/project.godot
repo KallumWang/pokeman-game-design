@@ -17,12 +17,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Pokeman"
 run/main_scene="uid://dpiddfu435x5a"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://actual assets/icon.svg"
 
 [autoload]
 
 Global="*res://code/Global.gd"
-Transition="*res://transition_scene.tscn"
+Transition="*res://scenes/transition_scene.tscn"
 
 [display]
 

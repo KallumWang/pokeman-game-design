@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://gju3ugc622hc"]
+
+[ext_resource type="Texture2D" uid="uid://cqtuo0sfkqq2p" path="res://actual assets/icon.svg" id="1_j0mbn"]
+[ext_resource type="Script" uid="uid://dy3woyx3wll2u" path="res://code/trainer.gd" id="1_v2ji5"]
+[ext_resource type="Texture2D" uid="uid://ch2ibci2r730c" path="res://actual assets/Spripokemon ghost.png" id="3_u8a1r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2ji5"]
+size = Vector2(14, 38)
+
+[node name="Trainer" type="Node2D" unique_id=1184153749]
+position = Vector2(65, 47)
+script = ExtResource("1_v2ji5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=176158179]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=685330356]
+position = Vector2(32, -32)
+scale = Vector2(0.12530772, 0.13402712)
+texture = ExtResource("1_j0mbn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=276618390]
+position = Vector2(32, -21)
+shape = SubResource("RectangleShape2D_v2ji5")
+
+[node name="AlertSprite" type="Sprite2D" parent="." unique_id=1719026817]
+visible = false
+position = Vector2(14, -13)
+scale = Vector2(-0.9669043, 0.842442)
+texture = ExtResource("3_u8a1r")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

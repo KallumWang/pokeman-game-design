@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch2ibci2r730c"
-path="res://.godot/imported/Spripokemon ghost.png-356f05ef561cf25ac8702335401a7bba.ctex"
+uid="uid://c0xyxvu7kxv7h"
+path="res://.godot/imported/red.png-61dcfaf501fd200cb3b6e4d0d9b6d9d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spripokemon ghost.png"
-dest_files=["res://.godot/imported/Spripokemon ghost.png-356f05ef561cf25ac8702335401a7bba.ctex"]
+source_file="res://actual assets/red.png"
+dest_files=["res://.godot/imported/red.png-61dcfaf501fd200cb3b6e4d0d9b6d9d7.ctex"]
 
 [params]
 
