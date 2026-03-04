@@ -2,11 +2,33 @@
 
 [ext_resource type="Script" uid="uid://cf3vsgshjbpvl" path="res://code/Transition.gd" id="1_6hpjq"]
 
+[sub_resource type="Shader" id="Shader_aigh2"]
+code = "shader_type canvas_item;
+
+uniform float progress : hint_range(0, 1);
+uniform float diamond_size = 30.0;
+
+void fragment() {
+    float x_fraction = fract(FRAGCOORD.x / diamond_size);
+    float y_fraction = fract(FRAGCOORD.y / diamond_size);
+    float x_distance = abs(x_fraction - 0.5);
+    float y_distance = abs(y_fraction - 0.5);
+    if (x_distance + y_distance > progress) {
+        discard;
+    }
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cqi5c"]
+shader = SubResource("Shader_aigh2")
+shader_parameter/progress = 0.0
+shader_parameter/diamond_size = 30.0
+
 [node name="TransitionScene" type="CanvasLayer" unique_id=25481861]
 layer = 100
 script = ExtResource("1_6hpjq")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=761958908]
+material = SubResource("ShaderMaterial_cqi5c")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

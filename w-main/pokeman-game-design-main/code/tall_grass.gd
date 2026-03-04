@@ -16,6 +16,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		roll_for_encounter()
 
 func roll_for_encounter():
+	if Global.encounter_cooldown:
+		return
 	if randf() < encounter_chance:
 		# Use the 'safe' way to get the player node
 		var player = get_tree().current_scene.get_node_or_null("Player")

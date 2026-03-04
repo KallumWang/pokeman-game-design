@@ -3,7 +3,12 @@ var current_trainer_name: String = "" # Add this at the top of Global.gd
 var player_map_position: Vector2 = Vector2.ZERO
 var current_map_path: String = ""
 var disabled_grass_patches = {} 
+var encounter_cooldown = false
 
+func start_encounter_cooldown(duration: float = 1.5):
+	encounter_cooldown = true
+	await get_tree().create_timer(duration).timeout
+	encounter_cooldown = false
 # NEW: Track names of defeated trainers
 var defeated_trainers = [] 
 
