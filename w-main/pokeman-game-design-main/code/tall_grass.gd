@@ -25,4 +25,4 @@ func roll_for_encounter():
 			Global.save_player_state(player.global_position, get_tree().current_scene.scene_file_path)
 		
 		await Transition.fade_to_black()
-		get_tree().change_scene_to_file("res://scenes/battle_scene.tscn")
+		get_tree().change_scene_to_file("res://scenes/BattleScene.tscn")

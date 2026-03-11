@@ -34,4 +34,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 		await Transition.fade_to_black()
 		await get_tree().process_frame
-		get_tree().change_scene_to_file("res://Trainers and fights/TrainerFight1.tscn")
+		get_tree().change_scene_to_file("res://Trainers and fights/TrainerFight2.tscn")

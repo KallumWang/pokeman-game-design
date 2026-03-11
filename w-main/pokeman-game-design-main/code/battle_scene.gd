@@ -8,10 +8,10 @@ var lucky_move_index: int = -1
 var trainer_name: String = ""
 # Enemy Move Data
 var enemy_moves = [
-	{"name": "Cheese", "damage": 25},
-	{"name": "Hollow purple", "damage": 30},
-	{"name": "Diddle", "damage": 25},
-	{"name": "Divergent fist", "damage": 15}
+	{"name": "AS", "damage": 25},
+	{"name": "S", "damage": 30},
+	{"name": "B", "damage": 25},
+	{"name": "Q", "damage": 15}
 ]
 
 
@@ -145,6 +145,8 @@ func flash_sprite(sprite: Sprite2D, color: Color):
 	tween.tween_property(sprite, "modulate", Color.WHITE, 0.1)
 
 func victory_animation(defeated_sprite: Sprite2D):
+	if Global.current_trainer_name != "":
+		Global.defeated_trainers.append(Global.current_trainer_name) #
 	var tween = create_tween()
 	tween.tween_property(defeated_sprite, "modulate:a", 0, 0.5)
 	await tween.finished
@@ -174,7 +176,7 @@ func spawn_damage_number(amount: int, target_position: Vector2, color: Color):
 
 func _on_move_1_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(0, "Toe Mass", 30)
+		execute_player_move(0, "Toe Mass", 3000)
 
 func _on_move_2_pressed() -> void:
 	if is_player_turn:

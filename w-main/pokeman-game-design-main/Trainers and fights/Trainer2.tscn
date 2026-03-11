@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://co2oskso5i8wx"]
+
+[ext_resource type="PackedScene" uid="uid://gju3ugc622hc" path="res://Trainers and fights/Trainer1.tscn" id="1_elra4"]
+
+[node name="Trainer" unique_id=1184153749 instance=ExtResource("1_elra4")]
+script = null
