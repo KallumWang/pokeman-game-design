@@ -98,18 +98,28 @@ func enemy_turn():
 	update_log("Enemy is thinking...")
 	await get_tree().create_timer(1.5).timeout
 	
-	# AI: Pick a random move from the list
+	# 1. Pick the move first
 	var random_index = randi() % enemy_moves.size()
-	var move = enemy_moves[random_index]
+	var move = enemy_moves[random_index] # This defines 'move' for the whole function
 	
 	update_log("Enemy used " + move["name"] + "!")
+	await get_tree().create_timer(0.5).timeout
 	
-	player_hp -= move["damage"]
-	player_hp = max(0, player_hp)
-	
-	spawn_damage_number(move["damage"], player_spawn.global_position, Color.WHITE)
-	flash_sprite(player_sprite, Color.RED)
-	check_battle_status("player")
+	# 2. Use 'move' instead of 'enemy_moves'
+	if move["name"] == "Nah I'd win":
+		update_log("It backfired! The enemy defeated itself!")
+		enemy_hp = 0 
+		spawn_damage_number(999, enemy_spawn.global_position, Color.RED)
+		flash_sprite(enemy_sprite, Color.RED)
+		check_battle_status("enemy")
+	else:
+		# 3. Ensure 'player_hp' matches your variable name exactly (lowercase 'p')
+		player_hp -= move["damage"]
+		player_hp = max(0, player_hp)
+		
+		spawn_damage_number(move["damage"], player_spawn.global_position, Color.WHITE)
+		flash_sprite(player_sprite, Color.RED)
+		check_battle_status("player")
 
 func check_battle_status(last_target: String):
 	var hp_tween = create_tween().set_parallel(true)
