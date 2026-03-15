@@ -1,17 +1,17 @@
 extends Node2D
 
 # --- DATA ---
-var player_hp = 100
-var enemy_hp = 130
+var player_hp = 400
+var enemy_hp = 500
 var lucky_multiplier: float = 1.25
 var lucky_move_index: int = -1
 var trainer_name: String = ""
 # Enemy Move Data
 var enemy_moves = [
-	{"name": "Cheese", "damage": 25},
-	{"name": "Hollow purple", "damage": 30},
-	{"name": "Diddle", "damage": 25},
-	{"name": "Divergent fist", "damage": 15}
+	{"name": "Cheese", "damage": 100},
+	{"name": "Hollow purple", "damage": 150},
+	{"name": "Diddle", "damage": 125},
+	{"name": "Divergent fist", "damage": 135}
 ]
 
 
@@ -174,16 +174,16 @@ func spawn_damage_number(amount: int, target_position: Vector2, color: Color):
 
 func _on_move_1_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(0, "Toe Mass", 30)
+		execute_player_move(0, "Toe Mass", 130)
 
 func _on_move_2_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(1, "USA", 20)
+		execute_player_move(1, "USA", 120)
 
 func _on_move_3_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(2, "Kidnap", 25)
+		execute_player_move(2, "Kidnap", 125)
 
 func _on_move_4_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(3, "Oil Up", 35)
+		execute_player_move(3, "Oil Up", 135)

@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://cfylmuuw222dj"]
+[gd_scene format=3 uid="uid://cx02cbbugx5md"]
 
-[ext_resource type="Script" uid="uid://ddkaeth4wnn82" path="res://Trainers and fights/trainer_fight_2.gd" id="1_78xbh"]
-[ext_resource type="Texture2D" uid="uid://c0xyxvu7kxv7h" path="res://actual assets/red.png" id="2_jmp55"]
-[ext_resource type="Texture2D" uid="uid://bv0fwiqqaobap" path="res://actual assets/empty.png" id="3_uskf3"]
+[ext_resource type="Script" uid="uid://7xfqxepyrm5s" path="res://code/battle_scene.gd" id="1_p8os6"]
+[ext_resource type="Texture2D" uid="uid://c0xyxvu7kxv7h" path="res://actual assets/red.png" id="2_neowo"]
+[ext_resource type="Texture2D" uid="uid://bv0fwiqqaobap" path="res://actual assets/empty.png" id="3_f1fkt"]
 
 [node name="BattleScene" type="Node2D" unique_id=1455103894]
-script = ExtResource("1_78xbh")
+script = ExtResource("1_p8os6")
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=104003175]
 position = Vector2(80, 145)
@@ -64,14 +64,14 @@ offset_bottom = 65.59921
 rotation = -6.275622
 scale = Vector2(0.95357174, 1.0078534)
 max_value = 500.0
-texture_progress = ExtResource("2_jmp55")
+texture_progress = ExtResource("2_neowo")
 tint_progress = Color(1, 1, 0, 1)
 metadata/_edit_group_ = true
 
 [node name="hp 2" type="Sprite2D" parent="BattleUI" unique_id=384236115]
 position = Vector2(246.99998, 13.000008)
 scale = Vector2(0.88432366, 0.82033217)
-texture = ExtResource("3_uskf3")
+texture = ExtResource("3_f1fkt")
 metadata/_edit_group_ = true
 
 [node name="PlayerHPBar" type="TextureProgressBar" parent="BattleUI" unique_id=175915896]
@@ -82,13 +82,13 @@ offset_bottom = 192.59921
 rotation = -6.275622
 scale = Vector2(0.95357174, 1.0078534)
 max_value = 250.0
-texture_progress = ExtResource("2_jmp55")
+texture_progress = ExtResource("2_neowo")
 metadata/_edit_group_ = true
 
 [node name="hp 3" type="Sprite2D" parent="BattleUI" unique_id=720956711]
 position = Vector2(86.53052, 140.00003)
 scale = Vector2(0.92452514, 0.80204445)
-texture = ExtResource("3_uskf3")
+texture = ExtResource("3_f1fkt")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 

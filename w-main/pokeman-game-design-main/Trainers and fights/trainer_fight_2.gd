@@ -8,10 +8,10 @@ var lucky_move_index: int = -1
 var trainer_name: String = ""
 # Enemy Move Data
 var enemy_moves = [
-	{"name": "Kick", "damage": 25},
-	{"name": "Nah I'd win", "damage": 30},
-	{"name": "B", "damage": 25},
-	{"name": "Q", "damage": 15}
+	{"name": "D", "damage": 25},
+	{"name": "K", "damage": 30},
+	{"name": "J", "damage": 25},
+	{"name": "R", "damage": 15}
 ]
 
 
@@ -50,7 +50,7 @@ func setup_sprites():
 	enemy_spawn.add_child(enemy_sprite)
 	
 	player_sprite.texture = load("res://actual assets/Spripokemon ghost.png")
-	enemy_sprite.texture = load("res://actual assets/Sprite-0001-RecJot.png")
+	enemy_sprite.texture = load("res://actual assets/icon.svg")
 	player_sprite.global_scale = Vector2(2, 2) 
 	enemy_sprite.global_scale = Vector2(0.5, 0.5)
 	

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://mvewkxg5n4bw"]
+
+[ext_resource type="Script" uid="uid://b8lvrw0mtgdw1" path="res://code/battle_hud.gd" id="1_ifjka"]
+
+[node name="BattleHUD" type="CanvasLayer" unique_id=1213282015]
+script = ExtResource("1_ifjka")
+
+[node name="TrainerCounter" type="Label" parent="." unique_id=1627990058]
+offset_right = 24.0
+offset_bottom = 23.0

@@ -134,17 +134,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2ji5"]
 size = Vector2(14, 38)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snxrc"]
+size = Vector2(96, 136)
+
 [node name="Trainer" type="Node2D" unique_id=1184153749]
 position = Vector2(65, 47)
 script = ExtResource("1_snxrc")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=176158179]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=1742428347]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1742428347]
 position = Vector2(32, -56)
 sprite_frames = SubResource("SpriteFrames_l13uv")
 frame = 16
 frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=176158179]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=276618390]
 position = Vector2(32, -21)
@@ -155,5 +158,11 @@ visible = false
 position = Vector2(14, -13)
 scale = Vector2(-0.9669043, 0.842442)
 texture = ExtResource("3_qliq3")
+
+[node name="AnimationHitBox" type="Area2D" parent="." unique_id=344581746]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationHitBox" unique_id=2122402370]
+position = Vector2(31, -19)
+shape = SubResource("RectangleShape2D_snxrc")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

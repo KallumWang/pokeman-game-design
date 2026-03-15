@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://spiuxiiyfpr5" path="res://scenes/player.tscn" id="4_jh32y"]
 [ext_resource type="PackedScene" uid="uid://gju3ugc622hc" path="res://Trainers and fights/Trainer1.tscn" id="5_be0no"]
 [ext_resource type="PackedScene" uid="uid://c1lriywwjqjak" path="res://Trainers and fights/FinalTrainer.tscn" id="7_nakos"]
-[ext_resource type="PackedScene" uid="uid://co2oskso5i8wx" path="res://Trainers and fights/Trainer2.tscn" id="8_jh32y"]
+[ext_resource type="PackedScene" uid="uid://mvewkxg5n4bw" path="res://scenes/battle_hud.tscn" id="8_jh32y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jh32y"]
 texture = ExtResource("2_nakos")
@@ -118,12 +118,16 @@ position = Vector2(16, 32)
 
 [node name="Trainer1" parent="." unique_id=1184153749 instance=ExtResource("5_be0no")]
 position = Vector2(136, 24)
+battle_scene_path = "uid://deg024tpkjqmy"
 
-[node name="FinalBoss" parent="." unique_id=1399422045 instance=ExtResource("7_nakos")]
+[node name="Trainer2" parent="." unique_id=1262178364 instance=ExtResource("5_be0no")]
+position = Vector2(-24, 104)
+battle_scene_path = "uid://cfylmuuw222dj"
+
+[node name="Trainer3" parent="." unique_id=1477695181 instance=ExtResource("5_be0no")]
+position = Vector2(-112, 32)
+
+[node name="FinalTrainer" parent="." unique_id=1399422045 instance=ExtResource("7_nakos")]
 position = Vector2(-31, -17)
 
-[node name="Trainer2" parent="." unique_id=1943247230 instance=ExtResource("5_be0no")]
-position = Vector2(-240, 40)
-
-[node name="Trainer" parent="." unique_id=1064836841 instance=ExtResource("8_jh32y")]
-position = Vector2(-23, 167)
+[node name="BattleHUD" parent="." unique_id=1213282015 instance=ExtResource("8_jh32y")]
