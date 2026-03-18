@@ -50,7 +50,7 @@ func setup_sprites():
 	enemy_spawn.add_child(enemy_sprite)
 	
 	player_sprite.texture = load("res://actual assets/Spripokemon ghost.png")
-	enemy_sprite.texture = load("res://actual assets/Sprite-0001-RecJot.png")
+	enemy_sprite.texture = load("res://actual assets/jo.png")
 	player_sprite.global_scale = Vector2(2, 2) 
 	enemy_sprite.global_scale = Vector2(0.5, 0.5)
 	

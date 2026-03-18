@@ -14,27 +14,31 @@ func _ready():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		# 1. Screen Shake & Animation
-		if anim_sprite:
-			apply_screen_shake() # Start the shake
-			anim_sprite.play("default")
+		# 1. Freeze the player
+		body.set_physics_process(false)
 		
 		# 2. Show the alert '!'
 		if Alert_Sprite:
 			Alert_Sprite.visible = true
-			var tween = create_tween()
-			tween.tween_property(Alert_Sprite, "scale", Vector2(1.2, 1.2), 0.1)
-			tween.tween_property(Alert_Sprite, "scale", Vector2(1.0, 1.0), 0.1)
+			var t = create_tween()
+			t.tween_property(Alert_Sprite, "scale", Vector2(1.2, 1.2), 0.1)
+			t.tween_property(Alert_Sprite, "scale", Vector2(1.0, 1.0), 0.1)
 
-		# 3. Wait for animation to finish
+		# 3. Dramatic 2-second Shake
+		await apply_screen_shake() 
+		
+		# 4. Wake up animation
 		if anim_sprite:
+			anim_sprite.play("default")
 			await anim_sprite.animation_finished
 
-		# 4. Standard Battle Transition
+		# 5. Transition to Boss
 		Global.save_player_state(body.global_position, get_tree().current_scene.scene_file_path)
 		Global.current_trainer_name = name 
 		
 		await Transition.fade_to_black()
+		# Unfreeze just in case, though the scene is changing
+		body.set_physics_process(true) 
 		get_tree().change_scene_to_file("res://Trainers and fights/BossFight.tscn")
 
 func apply_screen_shake():
@@ -42,7 +46,10 @@ func apply_screen_shake():
 	if camera:
 		var original_pos = camera.offset
 		var shake_tween = create_tween()
-		# Rapidly move the camera offset back and forth
-		for i in range(5):
-			shake_tween.tween_property(camera, "offset", Vector2(randf_range(-5, 5), randf_range(-5, 5)), 0.05)
-		shake_tween.tween_property(camera, "offset", original_pos, 0.05)
+		
+		# 25 loops at 0.08s each = ~2 seconds of total shaking
+		for i in range(25):
+			shake_tween.tween_property(camera, "offset", Vector2(randf_range(-7, 7), randf_range(-7, 7)), 0.04)
+			shake_tween.tween_property(camera, "offset", original_pos, 0.04)
+		
+		await shake_tween.finished
