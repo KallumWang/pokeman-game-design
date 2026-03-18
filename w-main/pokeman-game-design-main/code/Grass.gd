@@ -8,9 +8,9 @@ var lucky_move_index: int = -1
 var trainer_name: String = ""
 # Enemy Move Data
 var enemy_moves = [
-	{"name": "Kick", "damage": 25},
-	{"name": "Nah I'd win", "damage": 30},
-	{"name": "two fold kick", "damage": 25},
+	{"name": "Bomb", "damage": 25},
+	{"name": "Explode", "damage": 30},
+	{"name": "Slime out Harish", "damage": 25},
 	{"name": "Larp Larp Sahur", "damage": 1500}
 ]
 
@@ -106,7 +106,7 @@ func enemy_turn():
 	await get_tree().create_timer(0.5).timeout
 	
 	# 2. Use 'move' instead of 'enemy_moves'
-	if move["name"] == "Nah I'd win":
+	if move["name"] == "Explode":
 		update_log("It backfired! The enemy defeated itself!")
 		enemy_hp = 0 
 		spawn_damage_number(999, enemy_spawn.global_position, Color.RED)

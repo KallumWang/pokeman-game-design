@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c4xkpuvyd3fe7"]
 
-[ext_resource type="Script" uid="uid://d26qktghtfhsx" path="res://code/trainer_1.gd" id="1_fah7b"]
+[ext_resource type="Script" uid="uid://cnb1i828vyy7f" path="res://scenes/Grass.gd" id="1_3mvhd"]
 [ext_resource type="Texture2D" uid="uid://c0xyxvu7kxv7h" path="res://actual assets/red.png" id="2_khj81"]
 [ext_resource type="Texture2D" uid="uid://bv0fwiqqaobap" path="res://actual assets/empty.png" id="3_0b4qi"]
 
 [node name="BattleScene" type="Node2D" unique_id=1455103894]
-script = ExtResource("1_fah7b")
+script = ExtResource("1_3mvhd")
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=104003175]
 position = Vector2(80, 145)

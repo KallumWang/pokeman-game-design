@@ -1,17 +1,17 @@
 extends Node2D
 
 # --- DATA ---
-var player_hp = 200
-var enemy_hp = 500
+var player_hp = 100
+var enemy_hp = 130
 var lucky_multiplier: float = 1.25
 var lucky_move_index: int = -1
 var trainer_name: String = ""
 # Enemy Move Data
 var enemy_moves = [
-	{"name": "Haunt", "damage": 30},
-	{"name": "spook", "damage": 35},
-	{"name": ":3 femboy attack", "damage": 25},
-	{"name": "4 fantastic people", "damage": 20}
+	{"name": "12-1", "damage": 25},
+	{"name": "Me67", "damage": 30},
+	{"name": "Harish", "damage": 25},
+	{"name": "Larp Larp Sahur", "damage": 1500}
 ]
 
 
@@ -50,7 +50,7 @@ func setup_sprites():
 	enemy_spawn.add_child(enemy_sprite)
 	
 	player_sprite.texture = load("res://actual assets/Spripokemon ghost.png")
-	enemy_sprite.texture = load("res://actual assets/icon.svg")
+	enemy_sprite.texture = load("res://actual assets/Sprite-0001-RecJot.png")
 	player_sprite.global_scale = Vector2(2, 2) 
 	enemy_sprite.global_scale = Vector2(0.5, 0.5)
 	
@@ -98,18 +98,28 @@ func enemy_turn():
 	update_log("Enemy is thinking...")
 	await get_tree().create_timer(1.5).timeout
 	
-	# AI: Pick a random move from the list
+	# 1. Pick the move first
 	var random_index = randi() % enemy_moves.size()
-	var move = enemy_moves[random_index]
+	var move = enemy_moves[random_index] # This defines 'move' for the whole function
 	
 	update_log("Enemy used " + move["name"] + "!")
+	await get_tree().create_timer(0.5).timeout
 	
-	player_hp -= move["damage"]
-	player_hp = max(0, player_hp)
-	
-	spawn_damage_number(move["damage"], player_spawn.global_position, Color.WHITE)
-	flash_sprite(player_sprite, Color.RED)
-	check_battle_status("player")
+	# 2. Use 'move' instead of 'enemy_moves'
+	if move["name"] == "Explode":
+		update_log("It backfired! The enemy defeated itself!")
+		enemy_hp = 0 
+		spawn_damage_number(999, enemy_spawn.global_position, Color.RED)
+		flash_sprite(enemy_sprite, Color.RED)
+		check_battle_status("enemy")
+	else:
+		# 3. Ensure 'player_hp' matches your variable name exactly (lowercase 'p')
+		player_hp -= move["damage"]
+		player_hp = max(0, player_hp)
+		
+		spawn_damage_number(move["damage"], player_spawn.global_position, Color.WHITE)
+		flash_sprite(player_sprite, Color.RED)
+		check_battle_status("player")
 
 func check_battle_status(last_target: String):
 	var hp_tween = create_tween().set_parallel(true)
@@ -145,6 +155,8 @@ func flash_sprite(sprite: Sprite2D, color: Color):
 	tween.tween_property(sprite, "modulate", Color.WHITE, 0.1)
 
 func victory_animation(defeated_sprite: Sprite2D):
+	if Global.current_trainer_name != "":
+		Global.defeated_trainers.append(Global.current_trainer_name) #
 	var tween = create_tween()
 	tween.tween_property(defeated_sprite, "modulate:a", 0, 0.5)
 	await tween.finished
@@ -174,16 +186,16 @@ func spawn_damage_number(amount: int, target_position: Vector2, color: Color):
 
 func _on_move_1_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(0, "Toe Mass", 130)
+		execute_player_move(0, "Toe Mass", 3000)
 
 func _on_move_2_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(1, "USA", 120)
+		execute_player_move(1, "USA", 20)
 
 func _on_move_3_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(2, "Kidnap", 125)
+		execute_player_move(2, "Kidnap", 25)
 
 func _on_move_4_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(3, "Oil Up", 135)
+		execute_player_move(3, "Oil Up", 35)
