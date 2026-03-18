@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cx02cbbugx5md"]
 
-[ext_resource type="Script" uid="uid://7xfqxepyrm5s" path="res://code/battle_scene.gd" id="1_p8os6"]
+[ext_resource type="Script" uid="uid://c2w056atu7dm3" path="res://Trainers and fights/trainer_fight_3.gd" id="1_p8os6"]
 [ext_resource type="Texture2D" uid="uid://c0xyxvu7kxv7h" path="res://actual assets/red.png" id="2_neowo"]
 [ext_resource type="Texture2D" uid="uid://bv0fwiqqaobap" path="res://actual assets/empty.png" id="3_f1fkt"]
 

@@ -10,8 +10,8 @@ var trainer_name: String = ""
 var enemy_moves = [
 	{"name": "Kick", "damage": 25},
 	{"name": "Nah I'd win", "damage": 30},
-	{"name": "B", "damage": 25},
-	{"name": "Q", "damage": 15}
+	{"name": "two fold kick", "damage": 25},
+	{"name": "Larp Larp Sahur", "damage": 15}
 ]
 
 

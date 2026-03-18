@@ -8,10 +8,10 @@ var lucky_move_index: int = -1
 var trainer_name: String = ""
 # Enemy Move Data
 var enemy_moves = [
-	{"name": "D", "damage": 25},
-	{"name": "K", "damage": 30},
-	{"name": "J", "damage": 25},
-	{"name": "R", "damage": 15}
+	{"name": "Infinite Void", "damage": 25},
+	{"name": "Nah I'd win", "damage": 30},
+	{"name": "RCT", "damage": -25},
+	{"name": "Larp Larp Sahur", "damage": 1500}
 ]
 
 
@@ -50,7 +50,7 @@ func setup_sprites():
 	enemy_spawn.add_child(enemy_sprite)
 	
 	player_sprite.texture = load("res://actual assets/Spripokemon ghost.png")
-	enemy_sprite.texture = load("res://actual assets/icon.svg")
+	enemy_sprite.texture = load("res://actual assets/Sprite-0001-RecJot.png")
 	player_sprite.global_scale = Vector2(2, 2) 
 	enemy_sprite.global_scale = Vector2(0.5, 0.5)
 	
@@ -98,18 +98,28 @@ func enemy_turn():
 	update_log("Enemy is thinking...")
 	await get_tree().create_timer(1.5).timeout
 	
-	# AI: Pick a random move from the list
+	# 1. Pick the move first
 	var random_index = randi() % enemy_moves.size()
-	var move = enemy_moves[random_index]
+	var move = enemy_moves[random_index] # This defines 'move' for the whole function
 	
 	update_log("Enemy used " + move["name"] + "!")
+	await get_tree().create_timer(0.5).timeout
 	
-	player_hp -= move["damage"]
-	player_hp = max(0, player_hp)
-	
-	spawn_damage_number(move["damage"], player_spawn.global_position, Color.WHITE)
-	flash_sprite(player_sprite, Color.RED)
-	check_battle_status("player")
+	# 2. Use 'move' instead of 'enemy_moves'
+	if move["name"] == "Nah I'd win":
+		update_log("It backfired! The enemy defeated itself!")
+		enemy_hp = 0 
+		spawn_damage_number(999, enemy_spawn.global_position, Color.RED)
+		flash_sprite(enemy_sprite, Color.RED)
+		check_battle_status("enemy")
+	else:
+		# 3. Ensure 'player_hp' matches your variable name exactly (lowercase 'p')
+		player_hp -= move["damage"]
+		player_hp = max(0, player_hp)
+		
+		spawn_damage_number(move["damage"], player_spawn.global_position, Color.WHITE)
+		flash_sprite(player_sprite, Color.RED)
+		check_battle_status("player")
 
 func check_battle_status(last_target: String):
 	var hp_tween = create_tween().set_parallel(true)
