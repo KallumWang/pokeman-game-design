@@ -5,7 +5,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://hob65yq42lj5" path="res://PlayerAnimations.res" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7s6e"]
-size = Vector2(16, 28)
+size = Vector2(16, 16)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ivps1"]
 animation = &"IdleLeft"
@@ -192,7 +192,7 @@ hframes = 4
 vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1524317058]
-position = Vector2(8, 16)
+position = Vector2(8, 22)
 shape = SubResource("RectangleShape2D_c7s6e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=388523588]

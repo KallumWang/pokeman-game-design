@@ -23,6 +23,7 @@ config/icon="res://actual assets/icon.svg"
 
 Global="*res://code/Global.gd"
 Transition="*res://scenes/transition_scene.tscn"
+MusicManager="*uid://do84ajo7id2b"
 
 [display]
 
