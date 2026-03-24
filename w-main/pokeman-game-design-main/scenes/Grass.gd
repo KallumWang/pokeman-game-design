@@ -4,7 +4,7 @@ extends Node2D
 var player_hp = 100
 var enemy_hp = 130
 var lucky_multiplier: float = 1.25
-var lucky_move_index: int = -1
+var lucky_move_indices = []
 var trainer_name: String = ""
 # Enemy Move Data
 var enemy_moves = [
@@ -62,9 +62,34 @@ func setup_sprites():
 	intro_tween.tween_property(enemy_sprite, "position", Vector2.ZERO, 1.0).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 
 func pick_lucky_move():
-	lucky_move_index = randi() % 4
+	lucky_move_indices.clear()
+	var current_count = Global.defeated_trainers.size()
+	
+	# Determine how many moves should be lucky
+	# 0 trainers = 1 lucky move
+	# 1 trainer (count 2) = 2 lucky moves
+	# 2 trainers (count 4) = 3 lucky moves
+	# 3 trainers (count 6) = 4 lucky moves (ALL MOVES LUCKY)
+	var num_lucky_moves = 1 + (current_count / 2)
+	num_lucky_moves = clamp(num_lucky_moves, 1, 4)
+	
+	# Pick random unique moves
+	var available_indices = [0, 1, 2, 3]
+	available_indices.shuffle() # Mix them up
+	
+	for i in range(num_lucky_moves):
+		lucky_move_indices.append(available_indices[i])
+	
+	# Debugging
 	var move_names = ["Toe mass", "USA", "Kidnap", "Oil Up"]
-	print("DEBUG: The lucky move for this fight is: ", move_names[lucky_move_index])
+	var lucky_names = []
+	for idx in lucky_move_indices:
+		lucky_names.append(move_names[idx])
+		
+	print("--- NEW LUCK ROLLED ---")
+	print("Defeated Count: ", current_count)
+	print("Number of lucky moves: ", num_lucky_moves)
+	print("Lucky Moves are: ", lucky_names)
 
 func update_log(new_text: String):
 	battle_log.text = new_text
@@ -74,16 +99,23 @@ func update_log(new_text: String):
 
 func execute_player_move(move_id: int, move_name: String, base_damage: int):
 	is_player_turn = false
-	move_menu.hide() # ANTI-SPAM: Hide immediately
+	move_menu.hide()
 	
 	var final_damage = base_damage
 	update_log("Player used " + move_name + "!")
 	
 	await get_tree().create_timer(0.5).timeout
 	
-	if move_id == lucky_move_index:
-		final_damage = int(base_damage * lucky_multiplier)
-		update_log("LUCKY HIT! " + move_name + " was super effective!")
+	# FIXED CHECK: Compare the button's ID to the lucky index
+	if lucky_move_indices.has(move_id):
+		# If you are at the Final Boss (count 6), make it a 3x damage multiplier!
+		var boss_bonus = 1.0
+		if Global.defeated_trainers.size() >= 6:
+			boss_bonus = 2.4 # Makes the total multiplier roughly 3.0
+			
+		final_damage = int(base_damage * (lucky_multiplier * boss_bonus))
+		
+		update_log("LUCKY HIT! " + move_name + " dealt massive damage!")
 		spawn_damage_number(final_damage, enemy_spawn.global_position, Color.YELLOW)
 		flash_sprite(enemy_sprite, Color.YELLOW)
 	else:

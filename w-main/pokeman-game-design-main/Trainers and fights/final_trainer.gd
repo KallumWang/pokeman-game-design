@@ -14,6 +14,7 @@ func _ready():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		MusicManager.play_music("res://evil laugh.mp3")
 		# 1. Freeze the player
 		body.set_physics_process(false)
 		

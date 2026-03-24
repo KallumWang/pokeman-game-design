@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://do84ajo7id2b"]
-
-[ext_resource type="AudioStream" uid="uid://qa6xspf8alxb" path="res://actual assets/game song v2.mp3" id="1_tylfe"]
-
-[node name="MusicManager" type="AudioStreamPlayer2D" unique_id=1971892109]
-stream = ExtResource("1_tylfe")
-autoplay = true

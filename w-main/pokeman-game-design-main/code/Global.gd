@@ -5,6 +5,7 @@ var current_map_path: String = ""
 var disabled_grass_patches = {} 
 var encounter_cooldown = false
 
+
 func start_encounter_cooldown(duration: float = 1.5):
 	encounter_cooldown = true
 	await get_tree().create_timer(duration).timeout

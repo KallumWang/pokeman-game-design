@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://do84ajo7id2b"]
+
+[ext_resource type="AudioStream" uid="uid://qa6xspf8alxb" path="res://actual assets/game song v2.mp3" id="1_hetdf"]
+[ext_resource type="Script" uid="uid://c0s40imu8y7a8" path="res://code/music_manager.gd" id="2_jd6i5"]
+
+[node name="MusicManager" type="AudioStreamPlayer" unique_id=2106373611]
+stream = ExtResource("1_hetdf")
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_jd6i5")
