@@ -7,11 +7,12 @@
 [node name="BattleScene" type="Node2D" unique_id=1455103894]
 script = ExtResource("1_y3h6e")
 
+[node name="EnemySpawn" type="Marker2D" parent="." unique_id=354556356]
+position = Vector2(254.00003, 60.000004)
+scale = Vector2(0.4, 0.45)
+
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=104003175]
 position = Vector2(80, 145)
-
-[node name="EnemySpawn" type="Marker2D" parent="." unique_id=512400262]
-position = Vector2(252, 56)
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=629617970]
 

@@ -221,7 +221,7 @@ func _on_move_1_pressed() -> void:
 
 func _on_move_2_pressed() -> void:
 	if is_player_turn:
-		execute_player_move(1, "USA", 20)
+		execute_player_move(1, "USA", 25)
 
 func _on_move_3_pressed() -> void:
 	if is_player_turn:

@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://bt2y0idjjvv6u"]
+
+[ext_resource type="Script" path="res://lose.gd" id="1_pl8j0"]
+[ext_resource type="FontFile" uid="uid://cl70dmlbs7b1j" path="res://Jersey10-Regular.ttf" id="1_rtc1j"]
+[ext_resource type="Texture2D" uid="uid://bj7v5i01h7m11" path="res://player.png" id="3_46blr"]
+[ext_resource type="Texture2D" uid="uid://d37cuntpluux3" path="res://small grave.png" id="4_xrsfq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46blr"]
+atlas = ExtResource("3_46blr")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dane3"]
+atlas = ExtResource("3_46blr")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qarf"]
+atlas = ExtResource("3_46blr")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b83tc"]
+atlas = ExtResource("3_46blr")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrsfq"]
+atlas = ExtResource("3_46blr")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpxic"]
+atlas = ExtResource("3_46blr")
+region = Rect2(16, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s23sx"]
+atlas = ExtResource("3_46blr")
+region = Rect2(32, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84ume"]
+atlas = ExtResource("3_46blr")
+region = Rect2(48, 96, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dane3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46blr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dane3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qarf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b83tc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrsfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpxic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s23sx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84ume")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="lose" type="Control" unique_id=1283697082]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pl8j0")
+
+[node name="background" type="ColorRect" parent="." unique_id=562308947]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="you win" type="Label" parent="background" unique_id=323892880]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -76.0
+offset_right = 59.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_rtc1j")
+theme_override_font_sizes/font_size = 40
+text = "YOU LOSE!"
+
+[node name="w shi" type="Label" parent="background" unique_id=1364395316]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -44.0
+offset_right = 21.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_rtc1j")
+theme_override_font_sizes/font_size = 15
+text = "nephew im crine"
+
+[node name="Button" type="Button" parent="." unique_id=1762217674]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 89.0
+offset_bottom = 79.0
+text = "Restart"
+
+[node name="playerleaves" type="AnimatedSprite2D" parent="." unique_id=1316000005]
+position = Vector2(235, 113)
+scale = Vector2(2.625, 2.625)
+sprite_frames = SubResource("SpriteFrames_dane3")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="dihyard" type="Sprite2D" parent="." unique_id=1976186072]
+position = Vector2(283, 129)
+scale = Vector2(2.9062505, 2.9375002)
+texture = ExtResource("4_xrsfq")
